@@ -1,0 +1,118 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="format-detection" content="telephone=no" />
+  <script type="text/javascript" src="https://appapi.zyh365.com/certificate/js/rem.js"></script>
+  <title>防伪查验</title>
+  <link rel="stylesheet" href="https://appapi.zyh365.com/certificate/css/reset.css" />
+  <link rel="stylesheet" href="https://appapi.zyh365.com/certificate/css/dialog.css" />
+  <link rel="stylesheet" href="https://appapi.zyh365.com/certificate/css/common.css?v=0.0.3" />
+  <link rel="stylesheet" href="https://appapi.zyh365.com/certificate/libs/vant/vant.min.css">
+  <link rel="stylesheet" href="https://appapi.zyh365.com/certificate/css/select-list.css?v=0.0.3" />
+  <style>
+    @media only screen and (min-width: 400px) {
+      html {
+        font-size: 50px !important;
+      }
+    }
+    @media only screen and (min-width: 414px) {
+      html {
+        font-size: 55.2px !important;
+      }
+    }
+    @media only screen and (min-width: 480px) {
+      html {
+        font-size: 64px !important;
+      }
+    }
+    [v-cloak] {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+    <div class="weal_header">
+      <img src="https://appapi.zyh365.com/certificate/images/commonweal.png" alt="commonweal" />
+      <h5>志愿服务记录证明</h5>
+      <p>信息核查系统</p>
+    </div>
+
+    <h3 class="weal_title">数据来源志愿汇&emsp;请核对相关数据信息</h3>
+    <div class="weal_content">
+      <div class="avatar">
+        <img src="http://m.qpic.cn/psc?/V105tzoM2EIsPa/ruAMsa53pVQWN7FLK88i5nuftkbOj7z2j1kEczAYIv9MFNeoIy6XoSc0gjD*cEuWojaahL4BZhxA3L4uT1qrB1sYylYH44lekcAvJ5l1aDM!/mnull&bo=nQFyAgAAAAADB84!&rf=photolist&t=5" alt="avatar" />
+      </div>
+      
+      <ul class="info">
+        <li class="flex_row" v-if="infos.name">
+          <div>志愿者姓名：</div>
+          <div>郭学军</div>
+        </li>
+        <li class="flex_row" v-if="infos.vcode">
+          <div>志愿者编号：</div>
+          <div>140827200004110014</div>
+        </li>
+        <li class="flex_row" v-if="idTypeText">
+          <div>证件类型：</div>
+          <div>居民身份证</div>
+        </li>
+        <li class="flex_row" v-if="infos.idcard">
+          <div>证件号码：</div>
+          <div>******2000******14</div>
+        </li>
+        <li class="flex_row" v-if="infos.registertime">
+          <div>注册日期：</div>
+          <div>2019年10月15日</div>
+        </li>
+        <li class="flex_row" v-if="creditDuration" style="position: relative;">
+          <div><div class="answer" @click="popupType = 1, showPopup = true"></div>信用时长：</div>
+          <div>54小时</div>
+        </li>
+        <li class="flex_row" style="position: relative;" v-if="totalDuration || (infos.creditduration == 0 && infos.hisduration == 0) || (infos.deptname && infos.hisduration) || (infos.activityname && infos.hisduration)">
+          <div><div class="answer" @click="popupType = 2, showPopup = true"></div>荣誉时长：</div>
+          <div>54小时</div>
+        </li>
+        <li class="flex_row" v-if="infos.createtime">
+          <div>生成时间：</div>
+          <div>2023年02月12日 17:23</div>
+        </li>
+      </ul>
+
+    </div>
+
+    <div class="weal_tips">
+      <p>核查须知：</p>
+      <p>1. 该页面为相关志愿服务数据核查提供依据。</p>
+      <p>2. 志愿服务记录证明只对志愿汇平台志愿者服务时长等基础信息认证提供帮助，需参与活动组织方盖章确认。</p>
+      <p>3. 请妥善保管，使用时请遵守相关规定和章程，如有违法违规等行为，志愿汇不承担法律后果。</p>
+      <p>4. 本志愿服务记录证明最终解释权归志愿汇所有。</p>
+    </div>
+
+    <div class="weal_footer">
+      <img class="logo" src="https://appapi.zyh365.com/certificate/images/slogan&logo.png" alt="logo" />
+      <p>志愿服务热线：<a href="tel:4000035125">400-0035-125</a></p>
+      <p>版权所有 &copy; 志愿汇</p>
+      <img class="qrcode" src="https://appapi.zyh365.com/certificate/images/qrcode.png" alt="qrcode" />
+      <span>扫一扫&emsp;下载志愿汇</span>
+  
+  <script type="text/javascript" src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdn.staticfile.org/vue/2.6.10/vue.min.js"></script>
+  <script type="text/javascript" src="https://appapi.zyh365.com/certificate/libs/dialog.js"></script>
+  <script type="text/javascript" src="https://appapi.zyh365.com/certificate/js/common.js"></script>
+  <script type="text/javascript" src="https://appapi.zyh365.com/certificate/js/base.js"></script>
+  <script type="text/javascript" src="https://appapi.zyh365.com/certificate/libs/vant/vant.min.js"></script>
+  <script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+  <script src="https://appapi.zyh365.com/static/js/base/share.js"></script>
+  <script type="text/javascript">
+
+
+
+
+
+  </script>
+</body>
+</html>
